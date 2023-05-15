@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the BEST quotes site on the internet!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        *,*::before,*::after {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body class="bg-green-600 text-gray-200 flex items-center justify-center min-h-screen w-screen overflow-x-hidden p-4">
+    <div class="container mx-auto text-center space-y-5 bg-green-800 p-6">
+        <h1 class="text-3xl font-bold">This is a BETTER site for Facts!</h1>
+        <p>We here know that for a distinguished individual such as yourself, you don't care about jquery, its SOOO OLD and BOORING. You want something professionally done. </p><p>So lets not insult your intelligence and instead, here is an <span class="font-bold">Elegent</span> Fact page!</p>
+        <ul id="list" class="space-y-3">
+            We are having some issues loading the content... try getting the submodule!
+        </ul>
+    </div>
+    <script>
+        window.onload = function(){
+            getJSON();
+        }
+
+        function getJSON(){
+            var xhr = new XMLHttpRequest();
+            xhr.open("get","data/data.json");
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState===4&&xhr.status===200){
+                    renderList(JSON.parse(xhr.response));
+                }
+            }
+            xhr.send();
+        }
+
+        function renderList(data) {
+            data.forEach(fact => {
+                document.getElementById("list").innerHTML += `<li class="border-2 border-red-200 p-4 bg-slate-900 hover:bg-slate-500">${fact.text}</li>`;
+            });
+        }
+    </script>
+</body>
+</html>
