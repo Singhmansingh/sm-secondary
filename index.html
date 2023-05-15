@@ -37,6 +37,7 @@
         }
 
         function renderList(data) {
+            document.getElementById("list").innerHTML = "";
             data.forEach(fact => {
                 document.getElementById("list").innerHTML += `<li class="border-2 border-red-200 p-4 bg-slate-900 hover:bg-slate-500">${fact.text}</li>`;
             });
